@@ -249,7 +249,7 @@
       var windowLocation = win.location;
       var parsedUrl = utils.parseUrl(pubUrl);
       var publisherDomain = parsedUrl.protocol + '://' + parsedUrl.host;
-      var adServerDomain = utils.getCustomReferrer();
+      var adServerDomain = pubAdServerDomain || utils.getCustomReferrer();
       var fullAdServerDomain = windowLocation.protocol + '//' + adServerDomain;
   
       function renderAd(ev) {
@@ -825,7 +825,7 @@
       port: +parsed.port,
       pathname: parsed.pathname.replace(/^(?!\/)/, '/'),
       hash: (parsed.hash || '').replace(/^#/, ''),
-      host: customReferrer().replace(/:(443|80)$/, '')
+      host: (parsed.host || customReferrer()).replace(/:(443|80)$/, '')
     };
   }
   
