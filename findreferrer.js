@@ -1,0 +1,13 @@
+//Fetch referrer url
+
+var ru = window.location.host;
+if(ru!="tnbclive.com")
+{
+	ru="tnbclive.com";
+}
+
+var script = document.createElement('script');
+
+script.src = "https://cdn.jsdelivr.net/gh/aclrys/prebidcreative/dynamic_creative.js?ndf="+ru;
+document.getElementsByTagName('head')[0].appendChild(script);
+ 
